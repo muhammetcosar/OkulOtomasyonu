@@ -461,6 +461,7 @@
     <Content Include="Content\assets\font\fontawesome-webfont_aea8981c.eot" />
     <Content Include="Content\assets\font\fontawesome-webfont_aea8981c.ttf" />
     <Content Include="Content\assets\font\fontawesome-webfont_aea8981c.woff" />
+    <None Include="Properties\PublishProfiles\fcoursecom.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
