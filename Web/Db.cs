@@ -58,7 +58,7 @@ namespace Kadmyo
 
         public static void DsSave(int uid, bool h1, bool h2, string d1)
         {
-            var tarih = DateTime.Now.ToShortDateString();
+            var tarih= Convert.ToDateTime(DateTime.Now.ToShortDateString());
             int toplam = 0;
             if (h1 == false && h2 == true)
             {
