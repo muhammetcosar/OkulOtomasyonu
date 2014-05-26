@@ -15,7 +15,7 @@ namespace Kadmyo
         {
             get
             {
-                return new SqlConnection("Data Source=UZEM-BILGISAYAR;Initial Catalog=okul;Integrated Security=True");
+                return new SqlConnection("Data Source=SQL5002.Smarterasp.net;Initial Catalog=DB_9AF075_okul;User Id=DB_9AF075_okul_admin;Password=mamiokul;");
             }
         }
 

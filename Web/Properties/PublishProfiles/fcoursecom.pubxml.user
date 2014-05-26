@@ -100,7 +100,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2014 20:39:40</publishTime>
     </File>
     <File Include="bin/sakaryauni.dll">
-      <publishTime>05/24/2014 14:59:23</publishTime>
+      <publishTime>05/26/2014 21:53:06</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
       <publishTime>01/18/2014 20:39:28</publishTime>
@@ -1024,7 +1024,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2014 13:01:39</publishTime>
     </File>
     <File Include="Layout/Sidebar.ascx">
-      <publishTime>05/21/2014 10:26:37</publishTime>
+      <publishTime>05/26/2014 21:44:58</publishTime>
     </File>
     <File Include="Login.aspx">
       <publishTime>05/21/2014 16:35:26</publishTime>
@@ -1039,13 +1039,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2014 13:01:39</publishTime>
     </File>
     <File Include="Request/Manage.aspx">
-      <publishTime>05/15/2014 13:02:44</publishTime>
+      <publishTime>05/26/2014 21:44:58</publishTime>
     </File>
     <File Include="Request/Notlar.aspx">
-      <publishTime>05/15/2014 13:11:40</publishTime>
+      <publishTime>05/26/2014 21:47:04</publishTime>
     </File>
     <File Include="Request/Report.aspx">
       <publishTime>05/15/2014 13:01:39</publishTime>
+    </File>
+    <File Include="Request/Settings.aspx">
+      <publishTime>05/26/2014 21:44:58</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>01/18/2014 20:39:26</publishTime>
@@ -1150,7 +1153,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2014 13:01:39</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/24/2014 14:59:24</publishTime>
+      <publishTime>05/26/2014 21:53:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

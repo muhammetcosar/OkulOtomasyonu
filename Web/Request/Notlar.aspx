@@ -22,7 +22,8 @@
                                                        <br />
                                                      <br />
                                                      <asp:Label ID="lbders" runat="server" Text="Dersi Seçiniz :"></asp:Label>
-                                                       <asp:DropDownList ID="DERS" runat="server" AutoPostBack="True" DataTextField="DERSADI" OnSelectedIndexChanged="DERS_SelectedIndexChanged">
+                                                       <asp:DropDownList ID="DERS" runat="server" AutoPostBack="True" 
+                                                           DataTextField="DERSADI" OnSelectedIndexChanged="DERS_SelectedIndexChanged">
                                                        </asp:DropDownList>
                                                     </div>
                                                     <div>
