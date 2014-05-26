@@ -10,12 +10,12 @@ namespace Kadmyo
 {
     public class Db
     {
-       
+
         public static SqlConnection Connection
         {
             get
             {
-                return new SqlConnection("Data Source=SQL5002.Smarterasp.net;Initial Catalog=DB_9AF075_okul;User Id=DB_9AF075_okul_admin;Password=mamiokul;");
+                return new SqlConnection("Data Source=UZEM-BILGISAYAR;Initial Catalog=okul;Integrated Security=True");
             }
         }
 
@@ -28,7 +28,7 @@ namespace Kadmyo
             SqlConnection baglanti = Connection;
             SqlDataAdapter adapter = new SqlDataAdapter("ST_SP_DERSLER_SELECT ", baglanti);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-           
+
 
 
             DataTable tablo = new DataTable();
@@ -39,8 +39,8 @@ namespace Kadmyo
         {
             Dersler d = new Dersler();
             d.DERSID = Convert.ToInt32(row["DERSID"].ToString());
-            d.DERSADI =row["DERSADI"].ToString();
-           
+            d.DERSADI = row["DERSADI"].ToString();
+
             return d;
         }
         public static List<Dersler> DerslerListGet()
@@ -56,36 +56,36 @@ namespace Kadmyo
 
 
 
-        public static void DsSave(int uid, bool h1, bool h2,string d1)
+        public static void DsSave(int uid, bool h1, bool h2, string d1)
         {
-              var tarih = DateTime.Now.ToShortDateString();
-              int toplam = 0;
-              if (h1 == false && h2 == true)
-              {
-                  toplam = toplam + 1 + 0;
-              }
-              else if (h1 == true && h2 == false)
-              {
-                  toplam = toplam + 0 + 1;
-              }
-              else if (h1 == false && h2 == false)
-              {
-                  toplam = toplam + 2;
-              }
+            var tarih = DateTime.Now.ToShortDateString();
+            int toplam = 0;
+            if (h1 == false && h2 == true)
+            {
+                toplam = toplam + 1 + 0;
+            }
+            else if (h1 == true && h2 == false)
+            {
+                toplam = toplam + 0 + 1;
+            }
+            else if (h1 == false && h2 == false)
+            {
+                toplam = toplam + 2;
+            }
 
-                     var con = Connection;
-                    con.Open();
-                    var cmd = new SqlCommand("ST_SP_DEVAMSIZ_SAVE", con);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@USERID", uid);
-                    cmd.Parameters.AddWithValue("@DERS1", h1);
-                    cmd.Parameters.AddWithValue("@DERS2", h2);
-                    cmd.Parameters.AddWithValue("@EDATE", tarih);
-                    cmd.Parameters.AddWithValue("@TOPLAM", toplam);
-                    cmd.Parameters.AddWithValue("@DERSADI", d1);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                }
+            var con = Connection;
+            con.Open();
+            var cmd = new SqlCommand("ST_SP_DEVAMSIZ_SAVE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@USERID", uid);
+            cmd.Parameters.AddWithValue("@DERS1", h1);
+            cmd.Parameters.AddWithValue("@DERS2", h2);
+            cmd.Parameters.AddWithValue("@EDATE", tarih);
+            cmd.Parameters.AddWithValue("@TOPLAM", toplam);
+            cmd.Parameters.AddWithValue("@DERSADI", d1);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
 
         public static DataTable UserTableGet(int? id)
         {
@@ -159,6 +159,43 @@ namespace Kadmyo
         }
 
 
+        public static DataTable UserTableGet2(int? id)
+        {
+
+            SqlConnection baglanti = Connection;
+            SqlDataAdapter adapter = new SqlDataAdapter("ST_SP_USER_SELECT2 ", baglanti);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.SelectCommand.Parameters.AddWithValue("@USERID", id);
+
+
+            DataTable tablo = new DataTable();
+            adapter.Fill(tablo);
+            return tablo;
+        }
+        public static User UserParseGet2(DataRow row)
+        {
+            User m = new User();
+            m.USERID = Convert.ToInt32(row["USERID"].ToString());
+            m.USERNAME = row["USERNAME"].ToString();
+            m.NAME = row["NAME"].ToString();
+            m.TC = row["TC"].ToString();
+            m.SURNAME = row["SURNAME"].ToString();
+            m.MAIL = row["MAIL"].ToString();
+            m.PASSWORD = row["PASSWORD"].ToString();
+            return m;
+        }
+        public static List<User> UserListGet2(int? id)
+        {
+            var table = UserTableGet2(id);
+            List<User> list = new List<User>();
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(UserParseGet2(row));
+            }
+            return list;
+        }
+
+
         public static DataTable NotTableGet(int? id)
         {
 
@@ -196,7 +233,7 @@ namespace Kadmyo
 
 
 
-        public static void OgrenciSave(string numara,string tc,string name, string surname,string username,string sifre, string mail,string bolum,string ISADMIN )
+        public static void OgrenciSave(string numara, string tc, string name, string surname, string username, string sifre, string mail, string bolum, string ISADMIN)
         {
 
             var con = Connection;
@@ -221,7 +258,7 @@ namespace Kadmyo
 
 
 
-        public static DataTable SearchTable(int? id,  string username,string tc,string soyad,string bolum)
+        public static DataTable SearchTable(int? id, string username, string tc, string soyad, string bolum)
         {
 
             SqlConnection baglanti = Connection;
@@ -232,7 +269,7 @@ namespace Kadmyo
             adapter.SelectCommand.Parameters.AddWithValue("@TC", tc);
             adapter.SelectCommand.Parameters.AddWithValue("@SURNAME", soyad);
             adapter.SelectCommand.Parameters.AddWithValue("@BOLUM", bolum);
-          
+
             DataTable tablo = new DataTable();
             adapter.Fill(tablo);
             return tablo;
@@ -240,17 +277,17 @@ namespace Kadmyo
         public static User SearchParse(DataRow row)
         {
             User m = new User();
-            m.USERID =Convert.ToInt32( row["USERID"].ToString());
+            m.USERID = Convert.ToInt32(row["USERID"].ToString());
             m.USERNAME = row["USERNAME"].ToString();
             m.NAME = row["NAME"].ToString();
             m.SURNAME = row["SURNAME"].ToString();
             m.TC = row["TC"].ToString();
             m.BOLUM = row["BOLUM"].ToString();
-          
+
 
             return m;
         }
-        public static List<User> SearchList(int? id, string username, string tc, string soyad,string bolum)
+        public static List<User> SearchList(int? id, string username, string tc, string soyad, string bolum)
         {
             var table = SearchTable(id, username, tc, soyad, bolum);
             List<User> list = new List<User>();
@@ -261,7 +298,7 @@ namespace Kadmyo
             return list;
         }
 
-        
+
         public static LoginResult Login(string uname, string pass)
         {
             LoginResult result = new LoginResult() { SUCCESS = false };
@@ -285,8 +322,8 @@ namespace Kadmyo
                     result.MAIL = dr["MAIL"].ToString();
                     result.ISADMIN = Convert.ToBoolean(dr["ISADMIN"]);
                     result.BOLUM = dr["BOLUM"].ToString();
-                  
-                   
+
+
                 }
                 dr.Close();
                 con.Close();
@@ -308,7 +345,7 @@ namespace Kadmyo
             SqlConnection baglanti = Connection;
             SqlDataAdapter adapter = new SqlDataAdapter("ST_SP_BOLUM_SELECT ", baglanti);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-           
+
 
             DataTable tablo = new DataTable();
             adapter.Fill(tablo);
@@ -319,7 +356,7 @@ namespace Kadmyo
             Episode e = new Episode();
             e.EPISODEID = Convert.ToInt32(row["EPISODEID"].ToString());
             e.EPISODENAME = row["EPISODENAME"].ToString();
-         
+
 
 
             return e;
@@ -358,8 +395,8 @@ namespace Kadmyo
             o.DERS1 = Convert.ToInt32(row["DERS1"].ToString());
             o.DERS2 = Convert.ToInt32(row["DERS2"].ToString());
             o.DERSADI = row["DERSADI"].ToString();
-            o.EDATE =Convert.ToDateTime( row["EDATE"].ToString());
-           
+            o.EDATE = Convert.ToDateTime(row["EDATE"].ToString());
+
             return o;
         }
         public static List<Student> StudentListGet(int? id)
@@ -375,30 +412,45 @@ namespace Kadmyo
 
 
 
-        public static void NotSave(int uid, int v1, int v2,int f1,string d1)
+        public static void NotSave(int uid, int v1, int v2, int f1, string d1)
         {
-                   var tarih =Convert.ToDateTime( DateTime.Now.ToShortDateString());
-                    var con = Connection;
-                   con.Open();
-           
-                var cmd = new SqlCommand("ST_SP_NOT_SAVE", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@USERID", uid);
-                cmd.Parameters.AddWithValue("@VIZE1", v1);
-                cmd.Parameters.AddWithValue("@VIZE2", v2);
-                cmd.Parameters.AddWithValue("@FINAL", f1);
-                cmd.Parameters.AddWithValue("@EDATE", tarih);
-                cmd.Parameters.AddWithValue("@DERSADI", d1);
-               
-                cmd.ExecuteNonQuery();
-                con.Close();
-           
-            }
+            var tarih = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            var con = Connection;
+            con.Open();
 
+            var cmd = new SqlCommand("ST_SP_NOT_SAVE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@USERID", uid);
+            cmd.Parameters.AddWithValue("@VIZE1", v1);
+            cmd.Parameters.AddWithValue("@VIZE2", v2);
+            cmd.Parameters.AddWithValue("@FINAL", f1);
+            cmd.Parameters.AddWithValue("@EDATE", tarih);
+            cmd.Parameters.AddWithValue("@DERSADI", d1);
 
-
-
+            cmd.ExecuteNonQuery();
+            con.Close();
 
         }
-     
+
+
+        public static void UserGuncelle(int id, string ad, string soyad, string tc, string mail, string kullanıcı, string sifre)
+        {
+
+            var con = Connection;
+            con.Open();
+            var cmd = new SqlCommand("ST_SP_USER_UPDATE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@USERID", id);
+            cmd.Parameters.AddWithValue("@NAME", ad);
+            cmd.Parameters.AddWithValue("@SURNAME", soyad);
+            cmd.Parameters.AddWithValue("@TC", tc);
+            cmd.Parameters.AddWithValue("@MAIL", mail);
+            cmd.Parameters.AddWithValue("@USERNAME", kullanıcı);
+            cmd.Parameters.AddWithValue("@PASSWORD", sifre);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+        }
     }
+
+}

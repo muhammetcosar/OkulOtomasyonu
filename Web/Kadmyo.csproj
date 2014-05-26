@@ -461,8 +461,8 @@
     <Content Include="Content\assets\font\fontawesome-webfont_aea8981c.eot" />
     <Content Include="Content\assets\font\fontawesome-webfont_aea8981c.ttf" />
     <Content Include="Content\assets\font\fontawesome-webfont_aea8981c.woff" />
-    <None Include="Properties\PublishProfiles\fcoursecom.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Request\Settings.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -640,6 +640,13 @@
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

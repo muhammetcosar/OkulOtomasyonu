@@ -19,40 +19,40 @@ namespace Kadmyo
                 if (SessionManager.Login.ISADMIN)
                     Response.Redirect("~/Request/Manage");
 
-               }  
-                  List();     
+            }
+            List();
         }
-       
-       public void List()
+
+        public void List()
         {
             var uid = SessionManager.Login.USERID.Value;
-                dgrList.DataSource = Db.NotListGet(uid);
-                dgrList.DataBind();
-                dgrListD.DataSource = Db.StudentListGet(uid);
-                dgrListD.DataBind();
+            dgrList.DataSource = Db.NotListGet(uid);
+            dgrList.DataBind();
+            dgrListD.DataSource = Db.StudentListGet(uid);
+            dgrListD.DataBind();
         }
-      
+
         protected void dgrList_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void rblCevap_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnNew_Click(object sender, EventArgs e)
         {
-           
-           
+
+
         }
 
-       
+
     }
 }

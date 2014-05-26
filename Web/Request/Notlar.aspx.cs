@@ -91,8 +91,13 @@ namespace Kadmyo.Request
                         mesaj.Text = "Notları kontrol ediniz 100 üzerinde not veremezsınız.";
                     }
 
-                }
+                    
+                } 
+            vize1.Text = "";
+            vize2.Text = "";
+            final.Text = "";
             }
+           
         }
         public void RequestDetail()
         {
@@ -135,6 +140,11 @@ namespace Kadmyo.Request
         protected void gonder_Click(object sender, EventArgs e)
         {
             Nkaydet();
+        }
+
+        protected void DERS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }
 
     }

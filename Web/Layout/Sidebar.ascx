@@ -30,14 +30,9 @@
 							<span class="menu-text"> Devamsızlık </span>
 						</asp:HyperLink>
 					</li>
+                   
                     <li>
-						<asp:HyperLink  ID="lnkReport" runat="server" NavigateUrl="~/Request/Report">
-							<i class="icon-bar-chart"></i>
-							<span class="menu-text"> Rapor </span>
-						</asp:HyperLink>
-					</li>
-                    <li>
-						<asp:HyperLink ID="lnkSettings" runat="server" NavigateUrl="~/Settings">
+						<asp:HyperLink ID="lnkSettings" runat="server" NavigateUrl="~/Request/Settings">
 							<i class="icon-cog"></i>
 							<span class="menu-text"> Ayarlar </span>
 						</asp:HyperLink>

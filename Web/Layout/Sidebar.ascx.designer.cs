@@ -40,15 +40,6 @@ namespace Kadmyo.Layout {
         protected global::System.Web.UI.WebControls.HyperLink devam;
         
         /// <summary>
-        /// lnkReport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkReport;
-        
-        /// <summary>
         /// lnkSettings control.
         /// </summary>
         /// <remarks>

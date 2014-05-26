@@ -18,6 +18,7 @@ namespace Kadmyo
             public string VIZE2 { get; set; }
             public string FINAL { get; set; }
             public string BOLUM { get; set; }
+            public string MAIL { get; set; }
            
         }
 

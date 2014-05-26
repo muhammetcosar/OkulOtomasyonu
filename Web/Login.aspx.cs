@@ -70,8 +70,15 @@ namespace Kadmyo
             }
             else if (numara != "" && tc != "" && isim != "" && soyad != "" && sifre != "" && eMail != "" && bolumler != "")
             {
-                Db.OgrenciSave(Numara.Text, txttc.Text, Name.Text, Surname.Text, Username.Text, Password.Text, Mail.Text, bolum.Text, ISADMIN);
-                lbadmin.Text = "Kayıt Başarılı";
+                if (tc.Length != 11)
+                {
+                    lbadmin.Text = " Tc 11 karekter olmaz zorunda ..";
+                }
+                else
+                {
+                    Db.OgrenciSave(Numara.Text, txttc.Text, Name.Text, Surname.Text, Username.Text, Password.Text, Mail.Text, bolum.Text, ISADMIN);
+                    lbadmin.Text = "Kayıt Başarılı";
+                }
             }
 
             else
@@ -84,6 +91,11 @@ namespace Kadmyo
         protected void Save_Click(object sender, EventArgs e)
         {
             kaydet();
+        }
+
+        protected void Numara_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 
