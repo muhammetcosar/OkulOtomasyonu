@@ -19,7 +19,7 @@ namespace Kadmyo
             public string FINAL { get; set; }
             public string BOLUM { get; set; }
             public string MAIL { get; set; }
-           
+            public bool ISADMIN { get; set; }
         }
 
         public class Episode
@@ -73,9 +73,10 @@ namespace Kadmyo
         {
             public int? DERSID { get; set; }
             public string DERSADI { get; set; }
-        
-
-
+            public int? USERID { get; set; }
+            public int? DERSTYPE { get; set; }
+            public string NAME { get; set; }
+            public string SURNAME { get; set; }
 
         }
 

@@ -54,7 +54,10 @@ namespace Kadmyo
             return list;
         }
 
+       
 
+
+       
 
         public static void DsSave(int uid, bool h1, bool h2, string d1)
         {
@@ -256,6 +259,83 @@ namespace Kadmyo
 
         }
 
+        //ders onaylama işlemleri tamamlanmıştır :D
+        public static DataTable OnayTableGet(int? id)
+        {
+
+            SqlConnection baglanti = Connection;
+            SqlDataAdapter adapter = new SqlDataAdapter("ST_SP_ONAY_SELECT ", baglanti);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.SelectCommand.Parameters.AddWithValue("@DERSID", id);
+
+
+            DataTable tablo = new DataTable();
+            adapter.Fill(tablo);
+            return tablo;
+        }
+        public static Dersler OnayParseGet(DataRow row)
+        {
+            Dersler d = new Dersler();
+            d.DERSID = Convert.ToInt32(row["DERSID"].ToString());
+            d.DERSADI = row["DERSADI"].ToString();
+            d.DERSTYPE = Convert.ToInt32(row["DERSTYPE"].ToString());
+            d.USERID = Convert.ToInt32(row["USERID"].ToString());
+            d.NAME = row["NAME"].ToString();
+            d.SURNAME = row["SURNAME"].ToString();
+
+            return d;
+        }
+        public static List<Dersler> OnayListGet(int? id)
+        {
+            var table = OnayTableGet(id);
+            List<Dersler> list = new List<Dersler>();
+            foreach (DataRow row in table.Rows)
+            {
+                list.Add(OnayParseGet(row));
+            }
+            return list;
+        }
+        public static void DersSecimSave(string dersad,int userid)
+        {
+            var con = Connection;
+            con.Open();
+            var cmd = new SqlCommand("ST_SP_SECIM_SAVE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@DERSADI", dersad);
+            cmd.Parameters.AddWithValue("@USERID", userid);
+            cmd.Parameters.AddWithValue("@DERSTYPE", 0);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void DersSecimUpdate(int id)
+        {
+            var con = Connection;
+            con.Open();
+            var cmd = new SqlCommand("ST_SP_SECIM_UPDATE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@DERSID", id);
+            cmd.Parameters.AddWithValue("@DERSTYPE", 1);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void DersSecimDelete(int id)
+        {
+            
+            var con = Connection;
+            con.Open();
+
+            var cmd = new SqlCommand("ST_SP_DERSSECIM_DELETE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@DERSID", id);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+
+
+
+
 
 
         public static DataTable SearchTable(int? id, string username, string tc, string soyad, string bolum)
@@ -450,6 +530,26 @@ namespace Kadmyo
             cmd.ExecuteNonQuery();
             con.Close();
 
+        }
+        public static void BolumSave(string BOLUM)
+        {
+            var con = Connection;
+            con.Open();
+            var cmd = new SqlCommand("ST_SP_BOLUM_SAVE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@BOLUMADI", BOLUM);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+        public static void DersSave(string ders)
+        {
+            var con = Connection;
+            con.Open();
+            var cmd = new SqlCommand("ST_SP_DERS_SAVE", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@DERSADI", ders);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 

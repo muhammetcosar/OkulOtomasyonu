@@ -27,7 +27,19 @@
                     <li>
 						<asp:HyperLink ID="devam" runat="server" NavigateUrl="~/Request/devam">
 							<i class="icon-group"></i>
-							<span class="menu-text"> Devamsızlık </span>
+							<span class="menu-text"> Devamsızlık</span>
+						</asp:HyperLink>
+					</li>
+                    <li>
+						<asp:HyperLink ID="dersSecim" runat="server" NavigateUrl="~/Request/DersSecimi">
+							<i class="icon-group"></i>
+							<span class="menu-text">DersEkle</span>
+						</asp:HyperLink>
+					</li>
+                     <li>
+						<asp:HyperLink ID="dersOnay" runat="server" NavigateUrl="~/Request/DersOnay">
+							<i class="icon-group"></i>
+							<span class="menu-text">DersOnay</span>
 						</asp:HyperLink>
 					</li>
                    

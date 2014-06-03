@@ -7,63 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kadmyo.Layout {
+namespace sakaryauni.Request {
     
     
-    public partial class Sidebar {
+    public partial class DersOnay {
         
         /// <summary>
-        /// lnkRequest control.
+        /// dgrListOnay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkRequest;
+        protected global::System.Web.UI.WebControls.GridView dgrListOnay;
         
         /// <summary>
-        /// Notlar control.
+        /// txtName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Notlar;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// devam control.
+        /// txtSurname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink devam;
+        protected global::System.Web.UI.WebControls.TextBox txtSurname;
         
         /// <summary>
-        /// dersSecim control.
+        /// txtDersadı control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink dersSecim;
+        protected global::System.Web.UI.WebControls.TextBox txtDersadı;
         
         /// <summary>
-        /// dersOnay control.
+        /// cgOther control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink dersOnay;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cgOther;
         
         /// <summary>
-        /// lnkSettings control.
+        /// btnOnay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSettings;
+        protected global::System.Web.UI.WebControls.Button btnOnay;
+        
+        /// <summary>
+        /// btnkal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnkal;
+        
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }
