@@ -19,16 +19,12 @@ namespace Kadmyo
             public string FINAL { get; set; }
             public string BOLUM { get; set; }
             public string MAIL { get; set; }
-            public bool ISADMIN { get; set; }
         }
 
         public class Episode
         {
             public int? EPISODEID { get; set; }
             public string EPISODENAME { get; set; }
-           
-
-
         }
         public class Not
         {

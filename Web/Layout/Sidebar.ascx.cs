@@ -1,4 +1,4 @@
-﻿using sakaryauni.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +12,15 @@ namespace Kadmyo.Layout
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (DestekApp.Login.ISADMIN == false)
+            if (SessionManager.Login.ISADMIN == false)
             {
-                dersSecim.Visible = false;
                 dersOnay.Visible = false;
                 Notlar.Visible = false;
                 devam.Visible = false;
+            }
+            else if (SessionManager.Login.ISADMIN == true)
+            {
+                dersSecim.Visible = false;
             }
         }
     }
