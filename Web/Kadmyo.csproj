@@ -44,9 +44,6 @@
     <Reference Include="EntityFramework">
       <HintPath>packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.PowerShell.Utility">
-      <HintPath>packages\EntityFramework.6.0.0\tools\EntityFramework.PowerShell.Utility.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -593,7 +590,6 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\DateTimeRel.cs" />
-    <Compile Include="Models\Session.cs" />
     <Compile Include="Models\SessionManager.cs" />
     <Compile Include="Request\DersEkleme.aspx.cs">
       <DependentUpon>DersEkleme.aspx</DependentUpon>

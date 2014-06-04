@@ -12,8 +12,11 @@ namespace sakaryauni.Request
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Rbders.DataSource = Db.DerslerListGet();
-            Rbders.DataBind();
+            if (!this.IsPostBack)
+            {
+                Rbders.DataSource = Db.DerslerListGet();
+                Rbders.DataBind();
+            }
         }
         public void Save()
         {
@@ -24,6 +27,11 @@ namespace sakaryauni.Request
         protected void btngonder_Click(object sender, EventArgs e)
         {
             Save();
+        }
+
+        protected void Rbders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

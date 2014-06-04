@@ -15,12 +15,14 @@ namespace Kadmyo.Layout
             if (SessionManager.Login.ISADMIN == false)
             {
                 dersOnay.Visible = false;
+               
                 Notlar.Visible = false;
                 devam.Visible = false;
             }
             else if (SessionManager.Login.ISADMIN == true)
             {
                 dersSecim.Visible = false;
+                
             }
         }
     }

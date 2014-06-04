@@ -6,12 +6,12 @@
     <div class="span6">
         <div class="widget-box">
             <div class="widget-header">
-                <h5>Notlar</h5>
+                <h5>DersAlma</h5>
             </div>
             <div class="widget-body">
                 <div class="widget-main">
                     <div>
-                        <asp:RadioButtonList ID="Rbders" runat="server" DataValueField="DERSADI" DataMember="DERSADI">
+                        <asp:RadioButtonList ID="Rbders" runat="server" DataValueField="DERSADI" AutoPostBack="true" DataMember="DERSADI" OnSelectedIndexChanged="Rbders_SelectedIndexChanged">
                         </asp:RadioButtonList>
                         <asp:Button ID="btngonder" class="btn btn-info" runat="server" Text="Gonder" OnClick="btngonder_Click" />
                     </div>

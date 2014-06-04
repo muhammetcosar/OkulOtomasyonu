@@ -30,12 +30,19 @@
 							<span class="menu-text"> Devamsızlık</span>
 						</asp:HyperLink>
 					</li>
+                      <li>
+						<asp:HyperLink ID="dbolum" runat="server" NavigateUrl="~/Request/DersEkleme" Visible="False">
+							<i class="icon-group"></i>
+							<span class="menu-text"> Ders-BolumEkleme</span>
+						</asp:HyperLink>
+					</li>
                     <li>
 						<asp:HyperLink ID="dersSecim" runat="server" NavigateUrl="~/Request/DersSecimi">
 							<i class="icon-group"></i>
 							<span class="menu-text">DersEkle</span>
 						</asp:HyperLink>
 					</li>
+                     
                      <li>
 						<asp:HyperLink ID="dersOnay" runat="server" NavigateUrl="~/Request/DersOnay">
 							<i class="icon-group"></i>
