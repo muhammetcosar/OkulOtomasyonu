@@ -22,7 +22,7 @@ namespace Kadmyo.Layout
             else if (SessionManager.Login.ISADMIN == true)
             {
                 dersSecim.Visible = false;
-                
+                dbolum.Visible = true;
             }
         }
     }
